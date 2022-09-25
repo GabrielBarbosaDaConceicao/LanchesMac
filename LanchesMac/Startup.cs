@@ -1,4 +1,7 @@
-﻿namespace LanchesMac
+﻿using LanchesMac.Context;
+using Microsoft.EntityFrameworkCore;
+
+namespace LanchesMac
 {
     public class Startup
     {
@@ -12,6 +15,10 @@
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<AppDbContext>(options =>
+                        options.UseSqlServer(connectionString));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
