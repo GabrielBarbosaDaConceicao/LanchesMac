@@ -4,7 +4,7 @@ namespace LanchesMac.Controllers
 {
     public class ContatoController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Email()
         {
             return View();
         }
